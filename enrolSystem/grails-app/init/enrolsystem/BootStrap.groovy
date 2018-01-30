@@ -40,7 +40,29 @@ class BootStrap {
 		    tuitionFees: '9000.00',
 		    description: 'Lorem ipsum').save()
     
-    
+    def student1=new Student (
+			name:'Tatjana Cerniha',
+			studentID: '111',
+			dob: new Date('06/05/1982'),
+			isFundingAvailable: 'true',
+			email: 'djjj@ddj.com',
+			username: 'b2041324',
+			password: 'password',
+			course: 'Computing'
+			).save()
+     
+    def student2=new Student (
+			name:'Nikita Daffern',
+			studentID: '114',
+			dob: new Date('06/05/1990'),
+			isFundingAvailable: 'true',
+			email: 'nikita@ddj.com',
+			username: 'b2041345',
+			password: '1234',
+			course: 'Software'
+			).save()
+
+
     }
     def destroy = {
     }
