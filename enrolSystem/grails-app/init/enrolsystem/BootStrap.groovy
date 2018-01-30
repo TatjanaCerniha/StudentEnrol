@@ -61,7 +61,22 @@ class BootStrap {
 			password: '1234',
 			course: 'Software'
 			).save()
-
+    def SYSAR=new Module (
+			title:'System Architecture',
+			code: 'SY123',
+			credits: '20',
+			lecturer: 'Tonderai',	
+			course: 'Computing',
+			description:'Lorem ipsum ipsum'	
+			).save()
+     def WADI=new Module (
+			title:'Web Application Design and Implementation ',
+			code: 'WA145',
+			credits: '20',
+			lecturer: 'Dharam',	
+			course: 'Software',
+			description:'Lorem ipsum ipsum'	
+			).save()
 
     }
     def destroy = {
