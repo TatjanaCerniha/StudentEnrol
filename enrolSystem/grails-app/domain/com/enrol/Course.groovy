@@ -3,7 +3,7 @@ package com.enrol
 class Course {
 	String department
 	String title
-	String leader
+	Leader leader
 	String code
 	String studyMode
 	Date startDate
@@ -11,6 +11,13 @@ class Course {
 	String description
 	int numberOfStudents
 	double tuitionFees
+	double calculateFees()
+	{
+	    4*tuitonFees
+	}
+	String toString(){
+	return title	
+	}
 
     static constraints = {
 	title blank:false, nullable:false

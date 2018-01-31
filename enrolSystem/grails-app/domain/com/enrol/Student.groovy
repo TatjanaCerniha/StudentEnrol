@@ -9,7 +9,7 @@ class Student {
 	String email
 	String username
 	String password
-	String course
+	Course course
 	
 
     static constraints = {
