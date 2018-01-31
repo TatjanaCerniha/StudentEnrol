@@ -78,6 +78,15 @@ class BootStrap {
 			description:'Lorem ipsum ipsum'	
 			).save()
 
+	def tutor=new Lecturer(
+		fullName: 'Lynne Dawson',
+		post: 'sde',
+		subject: 'Databases',
+		lecturerEmail: 'ldawson@shu.ac.uk',
+		office: '9425',
+		bio: 'lorem epson'
+	).save()
+
     }
     def destroy = {
     }
