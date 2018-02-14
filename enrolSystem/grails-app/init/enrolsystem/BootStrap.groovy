@@ -3,7 +3,8 @@ package com.enrol
 class BootStrap {
 
     def init = { servletContext ->
-def lynnd=new Leader (
+
+	def lynnd=new Leader (
 		fullName: 'Dr Lynne Dawson',
 		department:'Computing',
 		subject:'System Architectures',
@@ -35,8 +36,7 @@ def lynnd=new Leader (
 	def course1=new Course( 
 		    title: 'BSc Hon Computing',
 		    department: 'Computing',
-		    code: 'CS123',
-		    
+		    code: 'CS123',	    
 		    leader:leader2,
 		    startDate: new Date('09/09/2017'),
 		    endDate: new Date ('07/07/2021'),
@@ -48,8 +48,7 @@ def lynnd=new Leader (
 	def course2=new Course( 
 		    title: 'BSc Security',
 		    department: 'Computing',
-		    code: 'CS1234',
-		    
+		    code: 'CS1234',   
 		    leader:lynnd,
 		    startDate: new Date('09/09/2018'),
 		    endDate: new Date ('07/07/2022'),
@@ -59,7 +58,7 @@ def lynnd=new Leader (
 		    description: 'Lorem ipsum, lorem, lorem').save()
 
 	def course3=new Course( 
-		    title: 'BSc Hon Software Engineering',
+		    title: 'BSc Software  Engineering', 
 		    department: 'Computing',
 		    code: 'CS123',
 		    
@@ -89,7 +88,7 @@ def lynnd=new Leader (
 			email: 'nikita@ddj.com',
 			username: 'niki',
 			password: '1234',
-			course: course2).save()
+			course: course3).save()
     def student3=new Student (
 			name:'Bafrin Fattahi',
 			studentID: 'b2553565',
@@ -98,7 +97,16 @@ def lynnd=new Leader (
 			email: 'bafrin@ddj.com',
 			username: 'baf',
 			password: 'baf',
-			course: course3).save()
+			course: course1).save()
+	def student4=new Student (
+			name:'Andrew Smeaton',
+			studentID: 'b2558565',
+			dob: new Date('06/05/1987'),
+			isFundingAvailable: true,
+			email: 'ansm@hotmail.com',
+			username: 'and',
+			password: 'and',
+			course: course1).save()
 
 	def lect1=new Lecturer(
 		fullName: 'Dr Steve Crossbar',
@@ -129,25 +137,64 @@ def lynnd=new Leader (
 			code: 'SY123',
 			credits: 20,
 			lecturer: lect2,	
-			course: course1,
+			//course: course1,
 			description:'Lorem ipsum ipsum'	).save()
      def module2=new Module (
 			title:'Web Application Design and Implementation ',
 			code: 'WA145',
 			credits: 20,
 			lecturer: lect1,	
-			course: course2,
+			//course: course2,
 			description:'Lorem ipsum ipsum'	).save()
 	def module3=new Module (
 			title:'Service Support',
 			code: 'SS145',
 			credits: 20,
 			lecturer: lect3,	
-			course: course3,
+			//course: course3, - delete them
 			description:'Lorem ipsum ipsum'	).save()
 
+	lect2.addToModules(module1)
+	lect1.addToModules(module2)
+	lect3.addToModules(module3)	
 
 	
+	
+	course1.addToLecturers(lect1)
+	course1.addToLecturers(lect2)
+	
+	course2.addToLecturers(lect2)
+	course2.addToLecturers(lect3)
+	
+	course3.addToLecturers(lect3)
+	course3.addToLecturers(lect1)
+
+	course3.addToStudents(student1)
+	course3.addToStudents(student2)
+	course1.addToStudents(student3)
+	course1.addToStudents(student4)
+
+	lect1.addToCourses(course1)
+	lect2.addToCourses(course2)
+	lect3.addToCourses(course3)
+
+	module1.addToCourses(course1)
+	module2.addToCourses(course2)
+	module3.addToCourses(course3)
+
+	module1.addToStudents(student1)	
+	module2.addToStudents(student2)	
+	module3.addToStudents(student3)	
+	module3.addToStudents(student4)
+
+	student1.addToModules(module1)
+	student1.addToModules(module2)
+	student2.addToModules(module1)
+	student2.addToModules(module3)	
+	student3.addToModules(module2)	
+	student3.addToModules(module3)	
+	student4.addToModules(module1)	
+	student4.addToModules(module3)				
 
     }
     def destroy = {

@@ -11,6 +11,13 @@ class Student {
 	String password
 	Course course
 	
+	String toString(){
+		return name // this shows name of student instead of enrol.student
+	}
+	static hasMany=[modules:Module]
+
+	static belongsTo = [Module]
+	
 
     static constraints = {
 		name blank:false, nullable:false

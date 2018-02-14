@@ -11,13 +11,17 @@ class Course {
 	String description
 	int numberOfStudents
 	double tuitionFees
+
+	
 	double calculateFees()
-	{
+	  {
 	    4*tuitonFees
-	}
+	  }
 	String toString(){
-	return title	
+	return title
 	}
+
+	static hasMany=[lecturers:Lecturer,students:Student, modules:Module]	
 
     static constraints = {
 	title blank:false, nullable:false
